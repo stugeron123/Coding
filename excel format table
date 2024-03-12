@@ -48,6 +48,15 @@
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
   </ItemGroup>
+ </PropertyGroup>
+  <ItemGroup>
+    <None Include="Excel.TableBindingFormattingManifest\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{516d2595-76a0-46a3-9325-d6ccb8921043}</SharePointProjectItemId>
+    </None>
+    <Content Include="Excel.TableBindingFormattingManifest\Excel.TableBindingFormatting.xml">
+      <OpcRelationship>manifest-oemanifest</OpcRelationship>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Excel.TableBindingFormattingWeb\Excel.TableBindingFormattingWeb.csproj">
       <Project>{EA5F367B-C521-4520-9D5D-33EE18678639}</Project>
