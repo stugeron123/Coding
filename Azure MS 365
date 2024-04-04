@@ -35,3 +35,11 @@ Deprecated client functions
 \details{
 These functions have been replaced by \code{\link{get_personal_onedrive}}, \code{\link{get_business_onedrive}} and \code{\link{get_sharepoint_site}}. They will be removed in a later version of the package.
 }
+sharepoint_site(
+  site_url = NULL,
+  site_id = NULL,
+  tenant = Sys.getenv("CLIMICROSOFT365_TENANT", "common"),
+  app = Sys.getenv("CLIMICROSOFT365_AADAPPID"),
+  scopes = ".default",
+  ...
+)
