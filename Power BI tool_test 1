@@ -28,3 +28,15 @@ VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
     ConsoleWriter.error('LOAD ERROR', e);
     process.exit(1);
 });
+export function getValue<T>(objects: DataViewObjects, objectName: string, propertyName: string, defaultValue: T ): T {
+    if(objects) {
+        let object = objects[objectName];
+        if(object) {
+            let property: T = object[propertyName];
+            if(property !== undefined) {
+                return property;
+            }
+        }
+    }
+    return defaultValue;
+}
