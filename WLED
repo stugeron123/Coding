@@ -65,5 +65,7 @@ def bin_gzip(source, target, env):
     with open(bin_file,"rb") as fp:
         with gzip.open(gzip_file, "wb", compresslevel = 9) as f:
             shutil.copyfileobj(fp, f)
-
+    # copy firmware.map to map/<variant>.map
+    if os.path.isfile("firmware.map"):
+        shutil.move("firmware.map", map_file)
 env.AddPostAction("$BUILD_DIR/${PROGNAME}.bin", [bin_rename_copy, bin_gzip])
