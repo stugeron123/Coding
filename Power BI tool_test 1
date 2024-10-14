@@ -38,5 +38,11 @@ export function getValue<T>(objects: DataViewObjects, objectName: string, proper
             }
         }
     }
+for (let i = 1; i < options.length; i++) {
+    if (options[i] == '--help' || options[i] == '-h') {
+        program.help(CommandHelpManager.createSubCommandHelpCallback(options));
+        process.exit(0);
+    }
+}
     return defaultValue;
 }
