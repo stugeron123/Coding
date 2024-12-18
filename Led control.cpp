@@ -126,7 +126,15 @@ void LedControl::setLed(int addr, int row, int column, boolean state) {
     }
     spiTransfer(addr, row+1,status[offset+row]);
 }
+}
 
+void LedControl::shutdown(int addr, bool b) {
+    if(addr<0 || addr>=maxDevices)
+        return;
+    if(b)
+        spiTransfer(addr, OP_SHUTDOWN,0);
+    else
+        spiTransfer(addr, OP_SHUTDOWN,1);
 void LedControl::setRow(int addr, int row, byte value) {
     int offset;
     if(addr<0 || addr>=maxDevices)
