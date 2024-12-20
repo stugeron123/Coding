@@ -229,6 +229,21 @@ void LedControl::setChar(int addr, int digit, char value, boolean dp) {
         //no defined beyond index 127, so we use the space char
         index=32;
     }
+}    
+void LedControl::setChar(int addr, int digit, char value, boolean dp) {
+    int offset;
+    byte index,v;
+
+    if(addr<0 || addr>=maxDevices)
+        return;
+    if(digit<0 || digit>7)
+        return;
+    offset=addr*8;
+    index=(byte)value;
+    if(index >127) {
+        //no defined beyond index 127, so we use the space char
+        index=32;
+    }
     v=pgm_read_byte_near(charTable + index); 
     if(dp)
         v|=B10000000;
