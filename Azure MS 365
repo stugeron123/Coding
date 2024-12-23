@@ -10,14 +10,7 @@ personal_onedrive(
   app = .microsoft365r_app_id,
   scopes = c("Files.ReadWrite.All", "User.Read"),
   ...
-)
 
-business_onedrive(
-  tenant = Sys.getenv("CLIMICROSOFT365_TENANT", "common"),
-  app = Sys.getenv("CLIMICROSOFT365_AADAPPID"),
-  scopes = ".default",
-  ...
-)
 
 sharepoint_site(
   site_url = NULL,
