@@ -255,6 +255,19 @@ Configuration Example
             Ensure               = "Present";
             Id                   = "TestAttributeSet";
             MaxAttributesPerSet  = 420;
-        }
+       
+    param(
+        [Parameter()]
+        [System.String]
+        $ApplicationId,
+
+        [Parameter()]
+        [System.String]
+        $TenantId,
+
+        [Parameter()]
+        [System.String]
+        $CertificateThumbprint
+    )}
     }
 }
