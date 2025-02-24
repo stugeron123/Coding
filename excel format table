@@ -73,4 +73,15 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <ProjectReference Include="..\Excel.TableBindingFormattingWeb\Excel.TableBindingFormattingWeb.csproj">
+      <Project>{EA5F367B-C521-4520-9D5D-33EE18678639}</Project>
+      <Name>Excel.TableBindingFormattingWeb</Name>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <OutputItemType>SharePointWebProjectOutput</OutputItemType>
+      <RoleName>Excel.TableBindingFormattingWeb</RoleName>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
