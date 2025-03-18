@@ -19,7 +19,7 @@ def _create_dirs(dirs=["firmware", "map"]):
         os.mkdir(OUTPUT_DIR)
 
     for d in dirs:
-        if not os.path.isdir("{}{}".format(OUTPUT_DIR, d)):
+        if not os.pathe.isdir("{}{}".format(OUTPUT_DIR, d)):
             os.mkdir("{}{}".format(OUTPUT_DIR, d))
 
 def bin_rename_copy(source, target, env):
@@ -55,7 +55,7 @@ def bin_gzip(source, target, env):
     variant = env["PIOENV"]
 
     # create string with location and file names based on variant
-    bin_file = "{}firmware{}{}.bin".format(OUTPUT_DIR, os.path.sep, variant)
+    bin_file = "{}firmware{}{}.bin.gz".format(OUTPUT_DIR, os.path.sep, variant)
     gzip_file = "{}firmware{}{}.bin.gz".format(OUTPUT_DIR, os.path.sep, variant)
 
     # check if new target files exist and remove if necessary
@@ -90,33 +90,7 @@ env.AddPostAction("$BUILD_DIR/${PROGNAME}.bin", [bin_rename_copy, bin_gzip])
   set to 1-shot mode and is always loaded with the time until the next edge
   of any live waveforms.
 
-  Up to one waveform generator per pin supported.
-
-  Each waveform generator is synchronized to the ESP clock cycle counter, not the
-  timer.  This allows for removing interrupt jitter and delay as the counter
-  always increments once per 80MHz clock.  Changes to a waveform are
-  contiguous and only take effect on the next waveform transition,
-  allowing for smooth transitions.
-
-  This replaces older tone(), analogWrite(), and the Servo classes.
-
-  Everywhere in the code where "ccy" or "ccys" is used, it means ESP.getCycleCount()
-  clock cycle time, or an interval measured in clock cycles, but not TIMER1
-  cycles (which may be 2 CPU clock cycles @ 160MHz).
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+  
 */
 
 #include "core_esp8266_waveform.h"
